@@ -1,0 +1,146 @@
+import type { SidebarsConfig } from "@docusaurus/plugin-content-docs"
+
+// Sidebar built from the original mkdocs `.pages` files to preserve the
+// exact chapter order of the source book.
+//
+// Each category lists its `index` doc as the first item so the landing page
+// of a section is directly clickable in the sidebar. We intentionally do NOT
+// set `link: { type: "doc", id: "<dir>/index" }` on the category because the
+// index doc already has a natural route at `/<dir>`, which would otherwise
+// collide with the category link and produce a duplicate-route warning.
+const sidebars: SidebarsConfig = {
+  bookSidebar: [
+    "index",
+    "getting-started",
+    "why-typescript",
+    {
+      type: "category",
+      label: "JavaScript",
+      collapsed: false,
+      items: [
+        "javascript/index",
+        "javascript/equality",
+        "javascript/references",
+        "javascript/null-undefined",
+        "javascript/this",
+        "javascript/closure",
+        "javascript/number",
+        "javascript/truthy",
+      ],
+    },
+    {
+      type: "category",
+      label: "Будущее JavaScript",
+      items: [
+        "future-javascript/index",
+        "future-javascript/classes",
+        "future-javascript/classes-emit",
+        "future-javascript/arrow-functions",
+        "future-javascript/rest-parameters",
+        "future-javascript/let",
+        "future-javascript/const",
+        "future-javascript/destructuring",
+        "future-javascript/spread-operator",
+        "future-javascript/for-of",
+        "future-javascript/iterators",
+        "future-javascript/template-strings",
+        "future-javascript/promise",
+        "future-javascript/generators",
+        "future-javascript/async-await",
+      ],
+    },
+    {
+      type: "category",
+      label: "Проекты",
+      items: [
+        "project/index",
+        "project/compilation-context",
+        "project/tsconfig",
+        "project/files",
+        "project/declarationspaces",
+        "project/modules",
+        "project/external-modules",
+        "project/globals",
+        "project/namespaces",
+        "project/dynamic-import-expressions",
+      ],
+    },
+    "nodejs",
+    "browser",
+    {
+      type: "category",
+      label: "Система типов",
+      items: [
+        "types/index",
+        "types/migrating",
+        "types/types",
+        {
+          type: "category",
+          label: "Декларирование среды",
+          items: ["types/ambient/index", "types/ambient/d.ts", "types/ambient/variables"],
+        },
+        "types/interfaces",
+        "types/enums",
+        "types/lib.d.ts",
+        "types/functions",
+        "types/callable",
+        "types/type-assertion",
+        "types/freshness",
+        "types/typeGuard",
+        "types/literal-types",
+        "types/readonly",
+        "types/generics",
+        "types/type-inference",
+        "types/type-compatibility",
+        "types/never",
+        "types/discriminated-unions",
+        "types/index-signatures",
+        "types/moving-types",
+        "types/exceptions",
+        "types/mixins",
+      ],
+    },
+    {
+      type: "category",
+      label: "JSX",
+      items: ["jsx/index", "jsx/react", "jsx/others"],
+    },
+    {
+      type: "category",
+      label: "Options",
+      items: ["options/index", "options/noImplicitAny", "options/strictNullChecks"],
+    },
+    "errors",
+    "npm",
+    "tools",
+    {
+      type: "category",
+      label: "Советы",
+      items: [
+        "tips/index",
+        "tips/stringEnums",
+        "tips/nominalTyping",
+        "tips/statefulFunctions",
+        "tips/bind",
+        "tips/currying",
+        "tips/typeInstantiation",
+        "tips/lazyObjectLiteralInitialization",
+        "tips/classesAreUseful",
+        "tips/defaultIsBad",
+        "tips/propertySetters",
+        "tips/outFile",
+        "tips/jquery",
+        "tips/staticConstructor",
+        "tips/singleton",
+        "tips/functionParameters",
+        "tips/build-toggles",
+        "tips/barrel",
+        "tips/create-arrays",
+        "tips/typed-event",
+      ],
+    },
+    "styleguide",
+  ],
+}
+
+export default sidebars

@@ -1,0 +1,41 @@
+name: Deploy Docusaurus Docs
+
+on:
+  push:
+    branches: [main]   # change if you use a different default branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # needed to push to gh-pages
+      pages: write     # (optional) for the GitHub Pages UI
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0      # needed because we will push a new branch
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'   # matches the version you used locally
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      # The next two steps are optional but make the build robust
+      #      - name: Generate sidebars from .pages
+      #        run: npm run generate-sidebar
+
+      - name: Build the static site
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          force_orphan: true          # creates a clean history on gh-pages

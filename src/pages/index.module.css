@@ -1,0 +1,177 @@
+.hero {
+  padding: 6rem 1.5rem 5rem;
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(49, 120, 198, 0.18),
+      transparent 60%
+    ),
+    var(--ifm-background-color);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.heroInner {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  background: rgba(49, 120, 198, 0.12);
+  border: 1px solid rgba(49, 120, 198, 0.3);
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+
+.title {
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  margin: 0;
+  font-weight: 800;
+  text-wrap: balance;
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  max-width: 640px;
+  color: var(--ifm-color-emphasis-700);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.ctaPrimary,
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.1s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.ctaPrimary {
+  background: var(--ifm-color-primary);
+  color: #fff;
+}
+
+.ctaPrimary:hover {
+  background: var(--ifm-color-primary-dark);
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.ctaSecondary {
+  background: transparent;
+  color: var(--ifm-font-color-base);
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.ctaSecondary:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.sectionsWrap {
+  padding: 4rem 1.5rem 6rem;
+}
+
+.sectionsInner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.sectionsTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+  transition: transform 0.15s ease, border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.card:hover {
+  text-decoration: none;
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(49, 120, 198, 0.1);
+  color: var(--ifm-font-color-base);
+}
+
+.cardTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.cardDesc {
+  margin: 0;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.cardArrow {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  color: var(--ifm-color-primary);
+  font-size: 1.1rem;
+  opacity: 0;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.card:hover .cardArrow {
+  opacity: 1;
+  transform: translateX(2px);
+}
